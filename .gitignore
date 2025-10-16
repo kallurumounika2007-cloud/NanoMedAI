@@ -1,0 +1,23 @@
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# VS Code settings
+.vscode/
+
+# Data and large assets
+data/
+assets/*.gif
+assets/*.mp4
+assets/*.png
+assets/*.jpg
+*.zip
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment files
+myenv/
+.env/
