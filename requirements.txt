@@ -1,3 +1,5 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
 # Core libraries
 numpy==2.3.4
 pandas==2.2.3
@@ -12,10 +14,9 @@ plotly==5.24.1
 seaborn==0.13.2
 
 # PyTorch (CPU only)
-torch==2.2.2+cpu
-torchvision==0.17.2+cpu
-torchaudio==2.2.2+cpu
---extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.2.2
+torchvision==0.17.2
+torchaudio==2.2.2
 
 # Reinforcement Learning / AI utilities
 gym==0.26.2
