@@ -3,8 +3,7 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import plotly.graph_objects as go
-#import pyttsx3  # Removed for cloud deployment
-#import threading  # Removed for cloud deployment
+import threading  # <-- for thread-safe voice
 
 # Project imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -12,39 +11,34 @@ from simulator.simulate_glucose import generate_glucose_trace
 from models.controller import autonomous_controller
 from models.rl_agent import RLAgent
 
-# Voice assistant (DISABLED for cloud)
-def speak_thread(text):
-    pass  # placeholder; does nothing in cloud
-
 # Page config + CSS
 st.set_page_config(page_title="NanoMed AI Shooter", layout="wide", page_icon="🤖")
 st.markdown("""
 <style>
-h1 { color: #00ffff; font-family: 'Courier New'; text-align:center; font-size:48px; }
-h3 { color: #ff69b4; font-family: Arial, sans-serif; }
 .stApp { background-color: #0f111a; color: #ffffff; }
 .sidebar .sidebar-content { background-color: #1a1b2a; }
 </style>
 """, unsafe_allow_html=True)
-st.markdown("<h1>🚀 NanoMed AI: Shooting Nanobot 3D Simulation</h1>", unsafe_allow_html=True)
+
+# Main Heading
+st.markdown("# 🚀 NanoMed AI: Shooting Nanobot 3D Simulation")
 
 # Sidebar
 st.sidebar.header("Simulation Controls")
 hours = st.sidebar.slider("Simulation Duration (hours)", 1, 24, 6)
 interval = st.sidebar.slider("Data Interval (minutes)", 1, 10, 5)
 simulate_button = st.sidebar.button("Run Simulation")
+
 st.sidebar.subheader("Scenario Triggers")
 meal = st.sidebar.checkbox("Meal")
 exercise = st.sidebar.checkbox("Exercise")
 stress = st.sidebar.checkbox("Stress")
 sleep = st.sidebar.checkbox("Sleep")
+
 st.sidebar.subheader("What-If Inputs")
 carbs = st.sidebar.number_input("Carbs intake (g)", 0, 200, 50)
 exercise_input = st.sidebar.number_input("Exercise intensity (0-10)", 0, 10, 5)
 stress_input = st.sidebar.number_input("Stress level (0-10)", 0, 10, 3)
-st.sidebar.subheader("Voice Assistant")
-if st.sidebar.button("Announce Current Glucose"):
-    st.info("Voice assistant disabled in cloud deployment.")
 
 # RL Agents
 agents = {"Nanobot A": RLAgent(), "Nanobot B": RLAgent()}
@@ -74,9 +68,8 @@ if simulate_button:
     # Layout
     col1, col2 = st.columns([3,1])
     with col1:
-        st.markdown("<h3>📈 3D Glucose & Shooting Nanobot Simulation</h3>", unsafe_allow_html=True)
+        st.markdown("### 📈 3D Glucose & Shooting Nanobot Simulation")
         fig = go.Figure()
-        # Glucose trend
         fig.add_trace(go.Scatter3d(
             x=df.index, y=[0]*len(df), z=df["Glucose"],
             mode='lines+markers', line=dict(color='cyan', width=4),
@@ -108,7 +101,7 @@ if simulate_button:
             plot_placeholder.plotly_chart(fig, use_container_width=True)
 
     with col2:
-        st.markdown("<h3>🤖 AI Decisions & Metrics</h3>", unsafe_allow_html=True)
+        st.markdown("### 🤖 AI Decisions & Metrics")
         st.metric("Current Glucose", f"{current_glucose:.2f} mg/dL")
         st.metric("Autonomous Dose", f"{auto_dose:.2f} U")
         for name, dose in doses.items():
