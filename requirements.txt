@@ -1,9 +1,9 @@
-# Core libraries
-numpy==2.3.4
+# Core libraries (pre-built wheels, no compilation needed)
+numpy==2.2.3
 pandas==2.2.3
-matplotlib==3.9.2
+matplotlib==3.7.2
 scikit-learn==1.5.2
-scipy==1.12.0
+scipy==1.10.1
 
 # Streamlit + Visualization
 streamlit==1.38.0
@@ -11,10 +11,10 @@ altair==5.5.0
 plotly==5.24.1
 seaborn==0.13.2
 
-# PyTorch (CPU only)
-torch==2.2.2+cpu
-torchvision==0.17.2+cpu
-torchaudio==2.2.2+cpu
+# PyTorch CPU-only (pre-built)
+torch==2.2.0+cpu
+torchvision==0.17.1+cpu
+torchaudio==2.2.0+cpu
 --extra-index-url https://download.pytorch.org/whl/cpu
 
 # Reinforcement Learning / AI utilities
