@@ -21,7 +21,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Main Heading
-st.markdown("<h1>🚀 NanoMed AI: Shooting Nanobot 3D Simulation</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='color:#00ffff; font-family:Courier New; text-align:center; font-size:48px;'>🚀 NanoMed AI: Shooting Nanobot 3D Simulation</h1>", unsafe_allow_html=True)
 
 
 # Sidebar
