@@ -1,42 +1,40 @@
---only-binary=:all:
-
 # Core libraries
-numpy==2.3.4
-pandas==2.2.3
-matplotlib==3.9.2
-scikit-learn==1.5.2
-scipy==1.12.0
+numpy
+pandas
+matplotlib
+scikit-learn
+scipy
 
 # Streamlit + Visualization
-streamlit==1.38.0
-altair==5.5.0
-plotly==5.24.1
-seaborn==0.13.2
+streamlit
+altair
+plotly
+seaborn
 
 # PyTorch (CPU only)
-torch==2.2.2+cpu
-torchvision==0.17.2+cpu
-torchaudio==2.2.2+cpu
+torch
+torchvision
+torchaudio
 --extra-index-url https://download.pytorch.org/whl/cpu
 
 # Reinforcement Learning / AI utilities
-gym==0.26.2
-stable-baselines3==2.3.2
+gym
+stable-baselines3
 
 # 3D Visualization & Simulation
-pythreejs==2.4.2
-matplotlib-inline==0.1.6
-trimesh==4.4.9
+pythreejs
+matplotlib-inline
+trimesh
 
 # Data handling
-joblib==1.4.2
-requests==2.32.3
+joblib
+requests
 
 # Voice Assistant & Audio
-SpeechRecognition==3.10.4
-pyttsx3==2.91
+SpeechRecognition
+pyttsx3
 
 # UI Enhancements
-streamlit-option-menu==0.3.12
-streamlit-lottie==0.0.5
-streamlit-extras==0.5.0
+streamlit-option-menu
+streamlit-lottie
+streamlit-extras
