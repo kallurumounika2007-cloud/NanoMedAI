@@ -21,7 +21,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Main Heading
-st.markdown("# 🚀 NanoMed AI: Shooting Nanobot 3D Simulation")
+st.markdown("<h1>🚀 NanoMed AI: Shooting Nanobot 3D Simulation</h1>", unsafe_allow_html=True)
+
 
 # Sidebar
 st.sidebar.header("Simulation Controls")
@@ -68,7 +69,8 @@ if simulate_button:
     # Layout
     col1, col2 = st.columns([3,1])
     with col1:
-        st.markdown("### 📈 3D Glucose & Shooting Nanobot Simulation")
+        st.markdown("<h3 style='color:#ff69b4; font-family:Arial, sans-serif;'>📈 3D Glucose & Shooting Nanobot Simulation</h3>", unsafe_allow_html=True)
+
         fig = go.Figure()
         fig.add_trace(go.Scatter3d(
             x=df.index, y=[0]*len(df), z=df["Glucose"],
@@ -101,7 +103,7 @@ if simulate_button:
             plot_placeholder.plotly_chart(fig, use_container_width=True)
 
     with col2:
-        st.markdown("### 🤖 AI Decisions & Metrics")
+        st.markdown("<h3 style='color:#7fff00; font-family:Arial, sans-serif;'>🤖 AI Decisions & Metrics</h3>", unsafe_allow_html=True)
         st.metric("Current Glucose", f"{current_glucose:.2f} mg/dL")
         st.metric("Autonomous Dose", f"{auto_dose:.2f} U")
         for name, dose in doses.items():
