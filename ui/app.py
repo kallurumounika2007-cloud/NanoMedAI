@@ -3,17 +3,13 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import plotly.graph_objects as go
-import threading  # still used for thread-safe updates if needed
+# threading import removed as it was only used for the voice assistant.
 
 # Project imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from simulator.simulate_glucose import generate_glucose_trace
 from models.controller import autonomous_controller
 from models.rl_agent import RLAgent
-
-# Dummy voice function for deployment
-def speak_thread(text):
-    pass  # Voice disabled for cloud deployment
 
 # Page config + CSS
 st.set_page_config(page_title="NanoMed AI Shooter", layout="wide", page_icon="🤖")
@@ -41,9 +37,7 @@ st.sidebar.subheader("What-If Inputs")
 carbs = st.sidebar.number_input("Carbs intake (g)", 0, 200, 50)
 exercise_input = st.sidebar.number_input("Exercise intensity (0-10)", 0, 10, 5)
 stress_input = st.sidebar.number_input("Stress level (0-10)", 0, 10, 3)
-st.sidebar.subheader("Voice Assistant")
-if st.sidebar.button("Announce Current Glucose"):
-    speak_thread("Simulation started. Current glucose and doses will be announced in real time.")
+# Voice Assistant section removed entirely to prevent runtime errors.
 
 # RL Agents
 agents = {"Nanobot A": RLAgent(), "Nanobot B": RLAgent()}
