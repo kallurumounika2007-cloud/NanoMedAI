@@ -3,8 +3,8 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 import plotly.graph_objects as go
-import pyttsx3
-import threading  # <-- for thread-safe voice
+#import pyttsx3  # Removed for cloud deployment
+#import threading  # Removed for cloud deployment
 
 # Project imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -12,10 +12,9 @@ from simulator.simulate_glucose import generate_glucose_trace
 from models.controller import autonomous_controller
 from models.rl_agent import RLAgent
 
-# Voice assistant (thread-safe)
-engine = pyttsx3.init()
+# Voice assistant (DISABLED for cloud)
 def speak_thread(text):
-    threading.Thread(target=lambda: engine.say(text) or engine.runAndWait()).start()
+    pass  # placeholder; does nothing in cloud
 
 # Page config + CSS
 st.set_page_config(page_title="NanoMed AI Shooter", layout="wide", page_icon="🤖")
@@ -45,7 +44,7 @@ exercise_input = st.sidebar.number_input("Exercise intensity (0-10)", 0, 10, 5)
 stress_input = st.sidebar.number_input("Stress level (0-10)", 0, 10, 3)
 st.sidebar.subheader("Voice Assistant")
 if st.sidebar.button("Announce Current Glucose"):
-    speak_thread("Simulation started. Current glucose and doses will be announced in real time.")
+    st.info("Voice assistant disabled in cloud deployment.")
 
 # RL Agents
 agents = {"Nanobot A": RLAgent(), "Nanobot B": RLAgent()}
@@ -107,7 +106,6 @@ if simulate_button:
                     name=f'{name} Dose'
                 ))
             plot_placeholder.plotly_chart(fig, use_container_width=True)
-            time.sleep(0.05)
 
     with col2:
         st.markdown("<h3>🤖 AI Decisions & Metrics</h3>", unsafe_allow_html=True)
