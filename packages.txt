@@ -1,12 +1,5 @@
-packages.txt: System-level dependencies required for heavy Python libraries
-
-(like trimesh, pythreejs, and PyTorch's underlying dependencies) to install correctly.
-
-OpenGL library (essential for many 3D/graphics/visualization tools)
-
-libgl1-mesa-glx
-
-Standard X Windows System libraries (often needed by visualization backend compilation)
-
+# This file must contain ONLY one system-level package name per line.
+libglib2.0-0
 libsm6
 libxext6
+libxrender1
