@@ -1,31 +1,24 @@
-
-Core Streamlit & Data
-
+# Core Streamlit & Data
 streamlit==1.38.0
 pandas==2.2.3
 numpy==2.3.4
 plotly==5.24.1
 
-PyTorch CPU for RL Agent (Essential for RLAgent logic)
+# PyTorch CPU (Cloud-friendly)
+torch==2.2.2
+torchvision==0.17.2
+torchaudio==2.2.2
 
-This uses the CPU-only version for cloud environments
-
-torch==2.2.2+cpu
-torchvision==0.17.2+cpu
-torchaudio==2.2.2+cpu
---extra-index-url https://download.pytorch.org/whl/cpu
-
-Reinforcement Learning / AI utilities
-
+# Reinforcement Learning / AI utilities
 gym==0.26.2
 stable-baselines3==2.3.2
 
-3D Visualization & Simulation (Required for full nanobot environment)
-
+# 3D Visualization & Simulation
 pythreejs==2.4.2
 matplotlib-inline==0.1.6
 trimesh==4.4.9
 
-Other utilities
-
+# Other utilities
 scipy==1.12.0
+
+
