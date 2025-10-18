@@ -1,0 +1,5 @@
+# This file must contain ONLY one system-level package name per line.
+libglib2.0-0
+libsm6
+libxext6
+libxrender1
